@@ -6,7 +6,7 @@ import sys
 from concurrent.futures import ThreadPoolExecutor
 
 gcontext = ssl.SSLContext()
-g = Github("UmerF920", "clegane1992", base_url="https://api.github.com")
+g = Github(sys.argv[1], sys.argv[2], base_url="https://api.github.com")
 
 
 """
