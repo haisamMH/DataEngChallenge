@@ -1,0 +1,1813 @@
+{
+  "openapi" : "3.0.2",
+  "info" : {
+    "title" : "Dilmah-Admin-BFF",
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "/"
+  } ],
+  "paths" : {
+    "/channel-group" : {
+      "get" : {
+        "tags" : [ "Taxon" ],
+        "summary" : "get all channel groups",
+        "parameters" : [ {
+          "name" : "Auth-token",
+          "in" : "header",
+          "description" : "Authorization bearea token",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : [ {
+                        "id" : 1,
+                        "code" : "DILMAH",
+                        "name" : "Dilmah",
+                        "description" : "Enjoye",
+                        "is_enable" : 1
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders" : {
+      "get" : {
+        "tags" : [ "Orders" ],
+        "summary" : "Get Orders",
+        "parameters" : [ {
+          "name" : "Auth-token",
+          "in" : "header",
+          "description" : "Authorization bearea token",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : "\n    {\n        \"id\": 21,\n        \"checkoutCompletedAt\": \"2017-02-15T13:31:33+0100\",\n        \"number\": \"000000021\",\n        \"items\": [\n            {\n                \"id\": 74,\n                \"quantity\": 1,\n                \"unitPrice\": 100000,\n                \"total\": 100000,\n                \"units\": [\n                    {\n                        \"id\": 228,\n                        \"adjustments\": [],\n                        \"adjustmentsTotal\": 0,\n                        \"_links\": {\n                            \"order\": {\n                                \"href\": \"/api/v1/orders/21\"\n                            }\n                        }\n                    }\n                ],\n                \"unitsTotal\": 100000,\n                \"adjustments\": [],\n                \"adjustmentsTotal\": 0,\n                \"variant\": {\n                    \"id\": 331,\n                    \"code\": \"MEDIUM_MUG_CUP\",\n                    \"optionValues\": [\n                        {\n                            \"name\": \"Mug type\",\n                            \"code\": \"mug_type_medium\"\n                        }\n                    ],\n                    \"position\": 2,\n                    \"translations\": {\n                        \"en_US\": {\n                            \"locale\": \"en_US\",\n                            \"id\": 331,\n                            \"name\": \"Medium Mug\"\n                        }\n                    },\n                    \"version\": 1,\n                    \"onHold\": 0,\n                    \"onHand\": 10,\n                    \"tracked\": false,\n                    \"channelPricings\": {\n                        \"US_WEB\": {\n                            \"channelCode\": \"US_WEB\",\n                            \"price\": 100000\n                        }\n                    },\n                    \"_links\": {\n                        \"self\": {\n                            \"href\": \"/api/v1/products/5/variants/331\"\n                        },\n                        \"product\": {\n                            \"href\": \"/api/v1/products/5\"\n                        }\n                    }\n                },\n                \"_links\": {\n                    \"product\": {\n                        \"href\": \"/api/v1/products/5\"\n                    },\n                    \"variant\": {\n                        \"href\": \"/api/v1/products/5/variants/331\"\n                    }\n                }\n            }\n        ],\n        \"itemsTotal\": 100000,\n        \"adjustments\": [\n            {\n                \"id\": 252,\n                \"type\": \"shipping\",\n                \"label\": \"DHL Express\",\n                \"amount\": 3549\n            }\n        ],\n        \"adjustmentsTotal\": 3549,\n        \"total\": 103549,\n        \"state\": \"new\",\n        \"customer\": {\n            \"id\": 1,\n            \"email\": \"shop@example.com\",\n            \"emailCanonical\": \"shop@example.com\",\n            \"firstName\": \"John\",\n            \"lastName\": \"Doe\",\n            \"gender\": \"u\",\n            \"user\": {\n                \"id\": 1,\n                \"username\": \"shop@example.com\",\n                \"usernameCanonical\": \"shop@example.com\",\n                \"roles\": [\n                    \"ROLE_USER\"\n                ],\n                \"enabled\": true\n            },\n            \"_links\": {\n                \"self\": {\n                    \"href\": \"/api/v1/customers/1\"\n                }\n            }\n        },\n        \"channel\": {\n            \"id\": 1,\n            \"code\": \"US_WEB\",\n            \"name\": \"US Web Store\",\n            \"hostname\": \"localhost\",\n            \"color\": \"MediumPurple\",\n            \"createdAt\": \"2017-02-14T11:10:02+0100\",\n            \"updatedAt\": \"2017-02-14T11:10:02+0100\",\n            \"enabled\": true,\n            \"taxCalculationStrategy\": \"order_items_based\",\n            \"_links\": {\n                \"self\": {\n                    \"href\": \"/api/v1/channels/1\"\n                }\n            }\n        },\n        \"shippingAddress\": {\n            \"id\": 71,\n            \"firstName\": \"Frederick D.\",\n            \"lastName\": \"Gregory\",\n            \"countryCode\": \"US\",\n            \"street\": \"300 E St SW\",\n            \"city\": \"’Washington\",\n            \"postcode\": \"DC 20546\",\n            \"createdAt\": \"2017-02-14T11:55:40+0100\",\n            \"updatedAt\": \"2017-02-14T17:00:17+0100\"\n        },\n        \"billingAddress\": {\n            \"id\": 72,\n            \"firstName\": \"Frederick D.\",\n            \"lastName\": \"Gregory\",\n            \"countryCode\": \"US\",\n            \"street\": \"300 E St SW\",\n            \"city\": \"’Washington\",\n            \"postcode\": \"DC 20546\",\n            \"createdAt\": \"2017-02-14T11:55:40+0100\",\n            \"updatedAt\": \"2017-02-14T17:00:17+0100\"\n        },\n        \"payments\": [\n            {\n                \"id\": 21,\n                \"method\": {\n                    \"id\": 2,\n                    \"code\": \"bank_transfer\",\n                    \"createdAt\": \"2017-02-14T11:10:02+0100\",\n                    \"updatedAt\": \"2017-02-14T11:10:02+0100\",\n                    \"channels\": [\n                        {\n                            \"id\": 1,\n                            \"code\": \"US_WEB\",\n                            \"name\": \"US Web Store\",\n                            \"hostname\": \"localhost\",\n                            \"color\": \"MediumPurple\",\n                            \"createdAt\": \"2017-02-14T11:10:02+0100\",\n                            \"updatedAt\": \"2017-02-14T11:10:02+0100\",\n                            \"enabled\": true,\n                            \"taxCalculationStrategy\": \"order_items_based\",\n                            \"_links\": {\n                                \"self\": {\n                                    \"href\": \"/api/v1/channels/1\"\n                                }\n                            }\n                        }\n                    ],\n                    \"_links\": {\n                        \"self\": {\n                            \"href\": \"/api/v1/payment-methods/bank_transfer\"\n                        }\n                    }\n                },\n                \"amount\": 103549,\n                \"state\": \"new\",\n                \"createdAt\": \"2017-02-14T11:53:41+0100\",\n                \"updatedAt\": \"2017-02-15T13:31:33+0100\",\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"/api/v1/payments/21\"\n                    },\n                    \"payment-method\": {\n                        \"href\": \"/api/v1/payment-methods/bank_transfer\"\n                    },\n                    \"order\": {\n                        \"href\": \"/api/v1/orders/21\"\n                    }\n                }\n            }\n        ],\n        \"shipments\": [\n            {\n                \"id\": 21,\n                \"state\": \"ready\",\n                \"method\": {\n                    \"id\": 2,\n                    \"code\": \"dhl_express\",\n                    \"category_requirement\": 1,\n                    \"calculator\": \"flat_rate\",\n                    \"configuration\": {\n                        \"US_WEB\": {\n                            \"amount\": 3549\n                        }\n                    },\n                    \"createdAt\": \"2017-02-14T11:10:02+0100\",\n                    \"updatedAt\": \"2017-02-14T11:10:02+0100\",\n                    \"enabled\": true,\n                    \"_links\": {\n                        \"self\": {\n                            \"href\": \"/api/v1/shipping-methods/dhl_express\"\n                        },\n                        \"zone\": {\n                            \"href\": \"/api/v1/zones/US\"\n                        }\n                    }\n                },\n                \"createdAt\": \"2017-02-14T11:53:41+0100\",\n                \"updatedAt\": \"2017-02-15T13:31:33+0100\",\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"/api/v1/shipments/21\"\n                    },\n                    \"method\": {\n                        \"href\": \"/api/v1/shipping-methods/dhl_express\"\n                    },\n                    \"order\": {\n                        \"href\": \"/api/v1/orders/21\"\n                    }\n                }\n            }\n        ],\n        \"currencyCode\": \"USD\",\n        \"localeCode\": \"en_US\",\n        \"checkoutState\": \"completed\"\n    }\n"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{id}" : {
+      "get" : {
+        "tags" : [ "Orders" ],
+        "summary" : "Get order by Id",
+        "parameters" : [ {
+          "name" : "Auth-token",
+          "in" : "header",
+          "description" : "Authorization bearea token",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Id of the requested order",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "id" : 33,
+                      "checkoutCompletedAt" : "2020-08-04T16:50:38+05:30",
+                      "number" : "000000023",
+                      "items" : [ {
+                        "id" : 68,
+                        "quantity" : 1,
+                        "unitPrice" : 8791,
+                        "total" : 8791,
+                        "units" : [ {
+                          "id" : 179,
+                          "adjustments" : [ ],
+                          "adjustmentsTotal" : 0
+                        } ],
+                        "unitsTotal" : 8791,
+                        "adjustments" : [ ],
+                        "adjustmentsTotal" : 0,
+                        "variant" : {
+                          "id" : 100,
+                          "code" : "727F_patched_cropped_jeans-variant-0",
+                          "optionValues" : [ {
+                            "code" : "s_tea_m",
+                            "translations" : {
+                              "de_DE" : {
+                                "locale" : "de_DE",
+                                "id" : 106,
+                                "value" : "100"
+                              },
+                              "en_US" : {
+                                "locale" : "en_US",
+                                "id" : 105,
+                                "value" : "100"
+                              },
+                              "es_ES" : {
+                                "locale" : "es_ES",
+                                "id" : 109,
+                                "value" : "100"
+                              },
+                              "es_MX" : {
+                                "locale" : "es_MX",
+                                "id" : 110,
+                                "value" : "100"
+                              },
+                              "fr_FR" : {
+                                "locale" : "fr_FR",
+                                "id" : 107,
+                                "value" : "100"
+                              },
+                              "pl_PL" : {
+                                "locale" : "pl_PL",
+                                "id" : 108,
+                                "value" : "100"
+                              },
+                              "pt_PT" : {
+                                "locale" : "pt_PT",
+                                "id" : 111,
+                                "value" : "100"
+                              },
+                              "zh_CN" : {
+                                "locale" : "zh_CN",
+                                "id" : 112,
+                                "value" : "100"
+                              }
+                            }
+                          } ],
+                          "position" : 0,
+                          "translations" : {
+                            "en_US" : {
+                              "locale" : "en_US",
+                              "id" : 100,
+                              "name" : "S"
+                            }
+                          },
+                          "version" : 1,
+                          "onHold" : 0,
+                          "onHand" : 9,
+                          "tracked" : false,
+                          "taxCategory" : {
+                            "id" : 1,
+                            "code" : "clothing",
+                            "name" : "Value Added Tax",
+                            "description" : "Fugit sint sit aut consequatur ex. Consequatur repellendus consequuntur ad distinctio enim voluptas minima. Excepturi quis illo ullam magni. Natus mollitia qui distinctio quisquam quia occaecati. Cumque corporis iste architecto.",
+                            "createdAt" : "2020-07-29T19:01:15+05:30",
+                            "updatedAt" : "2020-09-19T17:16:47+05:30",
+                            "_links" : {
+                              "self" : {
+                                "href" : "/api/v1/tax-categories/clothing"
+                              }
+                            }
+                          },
+                          "channelPricings" : {
+                            "FASHION_WEB" : {
+                              "channelCode" : "FASHION_WEB",
+                              "price" : 8791
+                            }
+                          },
+                          "_links" : {
+                            "self" : {
+                              "href" : "/api/v1/products/Ribbed_copper_tea3/variants/727F_patched_cropped_jeans-variant-0"
+                            },
+                            "product" : {
+                              "href" : "/api/v1/products/Ribbed_copper_tea3"
+                            }
+                          }
+                        },
+                        "_links" : {
+                          "order" : {
+                            "href" : "/api/v1/orders/33"
+                          },
+                          "product" : {
+                            "href" : "/api/v1/products/Ribbed_copper_tea3"
+                          },
+                          "variant" : {
+                            "href" : "/api/v1/products/Ribbed_copper_tea3/variants/727F_patched_cropped_jeans-variant-0"
+                          }
+                        }
+                      } ],
+                      "itemsTotal" : 8791,
+                      "adjustments" : [ {
+                        "id" : 219,
+                        "type" : "shipping",
+                        "label" : "UPS",
+                        "amount" : 492
+                      } ],
+                      "adjustmentsTotal" : 492,
+                      "total" : 9283,
+                      "state" : "fulfilled",
+                      "customer" : {
+                        "id" : 22,
+                        "email" : "chamantha@arimaclanka.com",
+                        "emailCanonical" : "chamantha@arimaclanka.com",
+                        "firstName" : "Chamantha",
+                        "lastName" : "De Silva",
+                        "birthday" : "2020-08-04T00:00:00+05:30",
+                        "gender" : "m",
+                        "user" : {
+                          "id" : 22,
+                          "username" : "chamantha@arimaclanka.com",
+                          "usernameCanonical" : "chamantha@arimaclanka.com",
+                          "roles" : [ "ROLE_USER" ],
+                          "enabled" : false
+                        },
+                        "_links" : {
+                          "self" : {
+                            "href" : "/api/v1/customers/22"
+                          }
+                        }
+                      },
+                      "channel" : {
+                        "id" : 1,
+                        "code" : "FASHION_WEB",
+                        "name" : "Dilmah Australia",
+                        "color" : "#000000",
+                        "createdAt" : "2020-07-29T19:01:04+05:30",
+                        "updatedAt" : "2020-08-04T13:12:34+05:30",
+                        "enabled" : true,
+                        "taxCalculationStrategy" : "order_items_based",
+                        "_links" : {
+                          "self" : {
+                            "href" : "/api/v1/channels/FASHION_WEB"
+                          }
+                        }
+                      },
+                      "shippingAddress" : {
+                        "id" : 76,
+                        "firstName" : "W O",
+                        "lastName" : "Mat",
+                        "phoneNumber" : 7.73677823E8,
+                        "countryCode" : "AU",
+                        "street" : "209/3, Gangarama Road",
+                        "city" : "Boralesgamuwa",
+                        "postcode" : "10290"
+                      },
+                      "billingAddress" : {
+                        "id" : 77,
+                        "firstName" : "W O",
+                        "lastName" : "Mat",
+                        "phoneNumber" : 7.73677823E8,
+                        "countryCode" : "AU",
+                        "street" : "209/3, Gangarama Road",
+                        "city" : "Boralesgamuwa",
+                        "postcode" : "10290"
+                      },
+                      "payments" : [ {
+                        "id" : 34,
+                        "method" : {
+                          "id" : 1,
+                          "code" : "cash_on_delivery",
+                          "position" : 0,
+                          "createdAt" : "2020-07-29T19:01:04+05:30",
+                          "updatedAt" : "2020-07-29T19:01:04+05:30",
+                          "enabled" : true,
+                          "translations" : {
+                            "en_US" : {
+                              "locale" : "en_US",
+                              "id" : 1,
+                              "name" : "Cash on delivery",
+                              "description" : "Inventore est quam laboriosam voluptas et."
+                            },
+                            "de_DE" : {
+                              "locale" : "de_DE",
+                              "id" : 2,
+                              "name" : "Cash on delivery",
+                              "description" : "Inventore est quam laboriosam voluptas et."
+                            },
+                            "fr_FR" : {
+                              "locale" : "fr_FR",
+                              "id" : 3,
+                              "name" : "Cash on delivery",
+                              "description" : "Inventore est quam laboriosam voluptas et."
+                            },
+                            "pl_PL" : {
+                              "locale" : "pl_PL",
+                              "id" : 4,
+                              "name" : "Cash on delivery",
+                              "description" : "Inventore est quam laboriosam voluptas et."
+                            },
+                            "es_ES" : {
+                              "locale" : "es_ES",
+                              "id" : 5,
+                              "name" : "Cash on delivery",
+                              "description" : "Inventore est quam laboriosam voluptas et."
+                            },
+                            "es_MX" : {
+                              "locale" : "es_MX",
+                              "id" : 6,
+                              "name" : "Cash on delivery",
+                              "description" : "Inventore est quam laboriosam voluptas et."
+                            },
+                            "pt_PT" : {
+                              "locale" : "pt_PT",
+                              "id" : 7,
+                              "name" : "Cash on delivery",
+                              "description" : "Inventore est quam laboriosam voluptas et."
+                            },
+                            "zh_CN" : {
+                              "locale" : "zh_CN",
+                              "id" : 8,
+                              "name" : "Cash on delivery",
+                              "description" : "Inventore est quam laboriosam voluptas et."
+                            }
+                          },
+                          "channels" : [ {
+                            "id" : 1,
+                            "code" : "FASHION_WEB",
+                            "name" : "Dilmah Australia",
+                            "color" : "#000000",
+                            "createdAt" : "2020-07-29T19:01:04+05:30",
+                            "updatedAt" : "2020-08-04T13:12:34+05:30",
+                            "enabled" : true,
+                            "taxCalculationStrategy" : "order_items_based",
+                            "_links" : {
+                              "self" : {
+                                "href" : "/api/v1/channels/FASHION_WEB"
+                              }
+                            }
+                          } ],
+                          "_links" : {
+                            "self" : {
+                              "href" : "/api/v1/payment-methods/cash_on_delivery"
+                            }
+                          }
+                        },
+                        "amount" : 9283,
+                        "state" : "refunded",
+                        "_links" : {
+                          "order" : {
+                            "href" : "/api/v1/orders/33"
+                          },
+                          "self" : {
+                            "href" : "/api/v1/payments/34"
+                          },
+                          "payment-method" : {
+                            "href" : "/api/v1/payment-methods/cash_on_delivery"
+                          }
+                        }
+                      } ],
+                      "shipments" : [ {
+                        "id" : 34,
+                        "state" : "shipped",
+                        "method" : {
+                          "id" : 1,
+                          "code" : "ups",
+                          "enabled" : true,
+                          "_links" : {
+                            "zone" : {
+                              "href" : "/api/v1/zones/WORLD"
+                            },
+                            "self" : {
+                              "href" : "/api/v1/shipping-methods/ups"
+                            }
+                          }
+                        },
+                        "_links" : {
+                          "order" : {
+                            "href" : "/api/v1/orders/33"
+                          },
+                          "self" : {
+                            "href" : "/api/v1/shipments/34"
+                          },
+                          "shipping-method" : {
+                            "href" : "/api/v1/shipping-methods/ups"
+                          }
+                        }
+                      } ],
+                      "currencyCode" : "LKR",
+                      "localeCode" : "en_US",
+                      "checkoutState" : "completed"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{id}/cancel" : {
+      "put" : {
+        "tags" : [ "Orders" ],
+        "summary" : "Cancel an Order",
+        "parameters" : [ {
+          "name" : "Auth-token",
+          "in" : "header",
+          "description" : "Authorization bearea token",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Id of the requested order",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success"
+          },
+          "400" : {
+            "description" : "already canceled"
+          }
+        }
+      }
+    },
+    "/orders/{orderId}/payments/{id}/complete" : {
+      "put" : {
+        "tags" : [ "Orders" ],
+        "summary" : "Complete payment",
+        "parameters" : [ {
+          "name" : "Auth-token",
+          "in" : "header",
+          "description" : "Authorization bearea token",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "orderId",
+          "in" : "path",
+          "description" : "Id of the requested order",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Id of payment to complete",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success"
+          },
+          "400" : {
+            "description" : "payment already completed"
+          }
+        }
+      }
+    },
+    "/orders/{orderId}/shipments/{id}/ship" : {
+      "put" : {
+        "tags" : [ "Orders" ],
+        "summary" : "Ship an Order",
+        "parameters" : [ {
+          "name" : "Auth-token",
+          "in" : "header",
+          "description" : "Authorization bearea token",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "orderId",
+          "in" : "path",
+          "description" : "Id of the requested order",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Id of the shipped shipment",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "examples" : {
+                "tracking" : {
+                  "value" : {
+                    "tracking" : "The tracking code of the shipment"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "success"
+          },
+          "204" : {
+            "description" : "No Content"
+          }
+        }
+      }
+    },
+    "/taxon/{channelGroup}" : {
+      "get" : {
+        "tags" : [ "Taxon" ],
+        "summary" : "get taxon list by group",
+        "parameters" : [ {
+          "name" : "Auth-token",
+          "in" : "header",
+          "description" : "Authorization bearea token",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "channelGroup",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "date" : [ {
+                        "id" : 9,
+                        "code" : "black_tea",
+                        "parent_id" : 24,
+                        "level" : 1,
+                        "position" : 1,
+                        "name" : "Black Tea"
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/taxon" : {
+      "post" : {
+        "tags" : [ "Taxon" ],
+        "summary" : "save taxon",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "examples" : {
+                "body" : {
+                  "value" : {
+                    "code" : "toys",
+                    "name" : "Toys",
+                    "parentId" : 1,
+                    "level" : 4,
+                    "position" : 1,
+                    "group" : "DILMAH",
+                    "translations" : {
+                      "en_US" : {
+                        "name" : "Toys"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "message" : "Successfully updated"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locale/{channelGroup}" : {
+      "get" : {
+        "tags" : [ "Taxon" ],
+        "summary" : "get locale by group",
+        "parameters" : [ {
+          "name" : "Auth-token",
+          "in" : "header",
+          "description" : "Authorization bearea token",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "channelGroup",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : {
+                        "id" : 3,
+                        "code" : "en_Us_T-LOUNGE",
+                        "group_code" : "T-LOUNGE",
+                        "locale" : "en_Us"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/currency/{channelGroup}" : {
+      "get" : {
+        "tags" : [ "Taxon" ],
+        "summary" : "get currency by group",
+        "parameters" : [ {
+          "name" : "Auth-token",
+          "in" : "header",
+          "description" : "Authorization bearea token",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "channelGroup",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : {
+                        "id" : 1,
+                        "code" : "RS_T_LOUNGE",
+                        "group_code" : "T-LOUNGE",
+                        "currency" : "RS"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products" : {
+      "get" : {
+        "tags" : [ "Products" ],
+        "summary" : "Get all products",
+        "parameters" : [ {
+          "name" : "Auth-token",
+          "in" : "header",
+          "description" : "Authorization bearea token",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : [ {
+                        "code" : "black_tea_1",
+                        "name" : "Premium Ceylon Black Tea - 25 Tea Bags",
+                        "image" : "",
+                        "main_taxon" : "Black Tea",
+                        "enabled" : true
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Products" ],
+        "summary" : "Save product",
+        "requestBody" : {
+          "description" : "body",
+          "content" : {
+            "application/json" : {
+              "examples" : {
+                "body" : {
+                  "value" : {
+                    "code" : "",
+                    "enabled" : true,
+                    "mainTaxon" : "mugs",
+                    "productTaxons" : "mugs",
+                    "options" : [ "mug_type" ],
+                    "variant_selection_method" : "",
+                    "channels" : [ "dilmah_1", "dilmah_2" ],
+                    "translations" : {
+                      "en_US" : {
+                        "name" : "Theme Mug",
+                        "slug" : "theme-mug"
+                      }
+                    },
+                    "attributes" : [ {
+                      "attribute" : "mug_color",
+                      "localeCode" : "en_US",
+                      "value" : "yellow"
+                    } ],
+                    "associations" : {
+                      "similar_products" : "SMM,BMM"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "message" : "successfull"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/{code}" : {
+      "get" : {
+        "tags" : [ "Products" ],
+        "summary" : "Get a product by Id",
+        "parameters" : [ {
+          "name" : "Auth-token",
+          "in" : "header",
+          "description" : "Authorization bearea token",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "code",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : {
+                        "id" : "",
+                        "code" : "black_tea_1",
+                        "name" : "Premium Ceylon Black Tea - 25 Tea Bags",
+                        "image" : "",
+                        "main_taxon" : "Black Tea",
+                        "enabled" : true,
+                        "attributes" : [ {
+                          "code" : "mug_material",
+                          "name" : "Mug material",
+                          "value" : "concrete",
+                          "type" : "text",
+                          "id" : 155
+                        } ],
+                        "options" : [ {
+                          "id" : 1,
+                          "code" : "mug_type",
+                          "position" : 0,
+                          "values" : [ {
+                            "name" : "Mug type",
+                            "code" : "mug_type_medium"
+                          }, {
+                            "name" : "Mug type",
+                            "code" : "mug_type_double"
+                          }, {
+                            "name" : "Mug type",
+                            "code" : "mug_type_monster"
+                          } ]
+                        } ],
+                        "associations" : [ ],
+                        "productTaxons" : [ ],
+                        "channels" : [ {
+                          "id" : 1,
+                          "code" : "US_WEB",
+                          "name" : "US Web Store",
+                          "enabled" : true,
+                          "taxCalculationStrategy" : "order_items_based"
+                        } ],
+                        "translations" : {
+                          "en_US" : {
+                            "locale" : "en_US",
+                            "id" : 71,
+                            "name" : "Theme Mug",
+                            "slug" : "theme-mug"
+                          },
+                          "pl" : {
+                            "locale" : "pl",
+                            "id" : 72,
+                            "name" : "Kubek z motywem",
+                            "slug" : "kubek-z-motywem"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Products" ],
+        "summary" : "Delete a product",
+        "parameters" : [ {
+          "name" : "code",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "message" : "successfull"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/options" : {
+      "get" : {
+        "tags" : [ "Options" ],
+        "summary" : "Get all options",
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : [ {
+                        "id" : "",
+                        "code" : "",
+                        "name" : ""
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Options" ],
+        "summary" : "create an option",
+        "requestBody" : {
+          "description" : "body",
+          "content" : {
+            "application/json" : {
+              "examples" : {
+                "body" : {
+                  "value" : {
+                    "code" : "",
+                    "position" : 1,
+                    "translations" : {
+                      "de_CH" : {
+                        "name" : "Bechergröße"
+                      },
+                      "en_US" : {
+                        "name" : "Mug size"
+                      }
+                    },
+                    "values" : [ {
+                      "code" : "MUG_SIZE_S",
+                      "translations" : {
+                        "en_US" : {
+                          "value" : "Small"
+                        }
+                      }
+                    }, {
+                      "code" : "MUG_SIZE_L",
+                      "translations" : {
+                        "en_US" : {
+                          "value" : "Large"
+                        }
+                      }
+                    } ]
+                  }
+                }
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "message" : "successfull"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/variants" : { },
+    "/channels/{channelGroup}" : {
+      "get" : {
+        "tags" : [ "Products" ],
+        "summary" : "Get all channels of a group",
+        "parameters" : [ {
+          "name" : "Auth-token",
+          "in" : "header",
+          "description" : "Authorization bearea token",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "channelGroup",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : [ {
+                        "code" : "US_WEB",
+                        "name" : "US Web Store",
+                        "theme" : "",
+                        "enabled" : true
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/inventory" : {
+      "get" : {
+        "tags" : [ "Inventory" ],
+        "summary" : "get all inventory",
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : [ {
+                        "name" : "",
+                        "code" : "",
+                        "inventory" : 20
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/inventory/{code}" : {
+      "get" : {
+        "tags" : [ "Inventory" ],
+        "summary" : "get inventory by code",
+        "parameters" : [ {
+          "name" : "code",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : {
+                        "name" : "",
+                        "code" : "",
+                        "inventory" : 10
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/attributes" : {
+      "get" : {
+        "tags" : [ "Attributes" ],
+        "summary" : "Get attributes",
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : [ {
+                        "code" : "",
+                        "name" : "",
+                        "type" : ""
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Attributes" ],
+        "summary" : "Create an attribute",
+        "requestBody" : {
+          "description" : "body",
+          "content" : {
+            "application/json" : {
+              "examples" : {
+                "body" : {
+                  "value" : {
+                    "id" : 1,
+                    "code" : "mug_material",
+                    "type" : "text",
+                    "position" : 0,
+                    "translations" : {
+                      "de_CH" : {
+                        "name" : "Becher Material"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "message" : "successfull"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/attributes/{code}" : {
+      "get" : {
+        "tags" : [ "Attributes" ],
+        "summary" : "get attribute by code",
+        "parameters" : [ {
+          "name" : "code",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "id" : 1,
+                      "code" : "mug_material",
+                      "type" : "text",
+                      "position" : 0,
+                      "translations" : {
+                        "de_CH" : {
+                          "id" : 1,
+                          "locale" : "de_CH",
+                          "name" : "Becher Material"
+                        },
+                        "en_US" : {
+                          "id" : 2,
+                          "locale" : "en_US",
+                          "name" : "Mug material"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/options/{code}" : {
+      "get" : {
+        "tags" : [ "Options" ],
+        "summary" : "get option by id",
+        "parameters" : [ {
+          "name" : "code",
+          "in" : "path",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : {
+                        "code" : "",
+                        "position" : 1,
+                        "translations" : {
+                          "de_CH" : {
+                            "name" : "Bechergröße"
+                          },
+                          "en_US" : {
+                            "name" : "Mug size"
+                          }
+                        },
+                        "values" : [ {
+                          "code" : "MUG_SIZE_S",
+                          "translations" : {
+                            "en_US" : {
+                              "value" : "Small"
+                            }
+                          }
+                        }, {
+                          "code" : "MUG_SIZE_L",
+                          "translations" : {
+                            "en_US" : {
+                              "value" : "Large"
+                            }
+                          }
+                        } ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/association-types" : {
+      "get" : {
+        "tags" : [ "Associations" ],
+        "summary" : "get all association types",
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : [ {
+                        "code" : "",
+                        "name" : ""
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Associations" ],
+        "summary" : "create association type",
+        "requestBody" : {
+          "description" : "body",
+          "content" : {
+            "application/json" : {
+              "examples" : {
+                "body" : {
+                  "value" : {
+                    "code" : "",
+                    "translations" : {
+                      "de_CH" : {
+                        "name" : "Becher Material"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "message" : "successfull"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/customers" : {
+      "get" : {
+        "tags" : [ "Customers" ],
+        "summary" : "get all customers",
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : [ {
+                        "firstName" : "John",
+                        "lastName" : "Diggle",
+                        "email" : "john.diggle@yahoo.com",
+                        "registrationDate" : "",
+                        "enabled" : false,
+                        "verified" : true
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/groups" : {
+      "get" : {
+        "tags" : [ "Customers" ],
+        "summary" : "get all groups",
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : [ {
+                        "code" : "",
+                        "name" : ""
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/promotions" : {
+      "get" : {
+        "tags" : [ "Promotions" ],
+        "summary" : "get all promotions",
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : [ {
+                        "id" : 6,
+                        "code" : "sd-promo",
+                        "name" : "Sunday promotion",
+                        "priority" : 4,
+                        "exclusive" : false,
+                        "used" : 0,
+                        "couponBased" : false
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product-reviews" : {
+      "get" : {
+        "tags" : [ "ProductReviews" ],
+        "summary" : "get product reviews",
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : [ {
+                        "id" : 1,
+                        "title" : "A product review",
+                        "rating" : 3,
+                        "status" : "new",
+                        "date" : "",
+                        "product" : "",
+                        "customer" : ""
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries" : {
+      "get" : {
+        "tags" : [ "Countries" ],
+        "summary" : "get all countries",
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : [ {
+                        "code" : "",
+                        "name" : "",
+                        "enabled" : true
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/exchange-rates" : {
+      "get" : {
+        "tags" : [ "ExchangeRates" ],
+        "summary" : "get all exchange rates",
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : [ {
+                        "sourceCurrency" : "",
+                        "targetCurrency" : "",
+                        "rate" : 12.2
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/currencies" : {
+      "get" : {
+        "tags" : [ "Currency" ],
+        "summary" : "get all currencies",
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : [ {
+                        "id" : "",
+                        "code" : "",
+                        "name" : ""
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/zones" : {
+      "get" : {
+        "tags" : [ "Zones" ],
+        "summary" : "Get all zones",
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : [ {
+                        "code" : "",
+                        "name" : "",
+                        "type" : ""
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/locales" : {
+      "get" : {
+        "tags" : [ "Locales" ],
+        "summary" : "get all locales",
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : [ {
+                        "id" : "",
+                        "code" : "",
+                        "name" : ""
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payment-methods" : {
+      "get" : {
+        "tags" : [ "paymentMethdos" ],
+        "summary" : "get all payment methods",
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : [ {
+                        "id" : 1,
+                        "code" : "cash_on_delivery",
+                        "position" : 0,
+                        "enabled" : true,
+                        "name" : "",
+                        "gateway" : ""
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/shipping-methods" : {
+      "get" : {
+        "tags" : [ "shippingMethods" ],
+        "summary" : "get all shipping methods",
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : [ {
+                        "id" : "",
+                        "code" : "",
+                        "name" : "",
+                        "zone" : "",
+                        "position" : "",
+                        "enabled" : true
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/shipping-categories" : {
+      "get" : {
+        "tags" : [ "shippingCategories" ],
+        "summary" : "get all shipping categories",
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : [ {
+                        "id" : "",
+                        "code" : "",
+                        "name" : ""
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tax-categories" : {
+      "get" : {
+        "tags" : [ "taxCategories" ],
+        "summary" : "get all tax categories",
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : [ {
+                        "id" : "",
+                        "code" : "",
+                        "name" : ""
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tax-rates" : {
+      "get" : {
+        "tags" : [ "taxRates" ],
+        "summary" : "get all tax rates",
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : [ {
+                        "id" : "",
+                        "code" : "",
+                        "name" : "",
+                        "zone" : "",
+                        "category" : "",
+                        "amount" : 7
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/administrators" : {
+      "get" : {
+        "tags" : [ "Administrators" ],
+        "summary" : "get all administrators",
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "success" : {
+                    "value" : {
+                      "status" : true,
+                      "data" : [ {
+                        "id" : "",
+                        "firstName" : "",
+                        "lastName" : "",
+                        "username" : "",
+                        "email" : "",
+                        "registrationDate" : "",
+                        "enabled" : ""
+                      } ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : { }
+}
